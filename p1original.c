@@ -1,22 +1,25 @@
 #include<stdio.h>
-void input(float *base,float *height)
+#include<math.h>
+void input(float *x1, float *y1, float *x2, float *y2)
 {
-  printf("enter the base, height");
-  scanf("%f%f",base,height);
+  printf("enter the coordinate of first point");
+  scanf("%f%f",x1,y1);
+  printf("enter the coordinate of second point");
+  scanf("%f%f",x2,y2);
 }
-void find_area(float base , float height , float *area)
+void find_distance(float x1, float y1, float x2, float y2, float *distance)
 {
-  *area= ((base*height)/2);
+  *distance=sqrt(pow((x2-x1),2)+pow((y2-y1),2));
 }
-void output(float base,float height,float area)
+ void output(float x1, float y1,float x2, float y2, float distance)
 {
-  printf("the area of triangle with base %f and height %f is %f",base,height,area);
+  printf("the distance between (%f%f) and (%f%f) is %f",x1,y1,x2,y2,distance);
 }
 int main()
 {
-  float base,height,area;
-  input(&base,&height);
-  find_area(base,height,&area);
-  output(base,height,area);
+  float x1,y1,x2,y2,distance;
+  input(&x1,&y1,&x2,&y2);
+  find_distance(x1,y1,x2,y2,&distance);
+  output(x1,y1,x2,y2,distance);
   return 0;
 }
